@@ -2948,28 +2948,7 @@ class PlayState extends MusicBeatState
 					PlayState.SONG = Song.loadFromJson(poop, PlayState.storyPlaylist[0]);
 					FlxG.sound.music.stop();
 
-					/* var video:MP4Handler = new MP4Handler();
-
-						new FlxTimer().start(0.4, function(tmr:FlxTimer)
-					{
-						if (curSong == 'Creepy' && !isCutscene)
-					{
-						FlxG.camera.fade(FlxColor.BLACK, 1, false, function(){
-							video.playMP4(Paths.video('Cutscenetw3'), new PlayState()); 
-							isCutscene = true;
-						});
-					}
-						else
-					{
-						new FlxTimer().start(1, function(tmr:FlxTimer)
-					{
-						if (isCutscene)
-							video.onVLCComplete();
-
-						LoadingState.loadAndSwitchState(new PlayState());
-					});
-				}*/
-			});
+					
 
 			//Cutscene Creepy
 
