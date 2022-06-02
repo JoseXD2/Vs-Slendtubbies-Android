@@ -376,7 +376,7 @@ class StoryMenuState extends MusicBeatState
 
 					video.finishCallback = function()
 					{
-						camOTHER.fade(FlxColor.BLACK, 1, true);
+						
 						startCountdown();
 					};
 					video.playVideo(Paths.video('Cutscenetw1'), false, false);
