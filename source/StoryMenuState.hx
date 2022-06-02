@@ -33,6 +33,8 @@ class StoryMenuState extends MusicBeatState
 	
 	var isCutscene:Bool = false;
         var inCutscene:Bool = false;
+	var startedCountdown:Bool = false;
+	
 	public static var weekUnlocked:Array<Bool> = [true, true, false, false, false, false, false];
 
 	var weekCharacters:Array<Dynamic> = [
@@ -63,6 +65,7 @@ class StoryMenuState extends MusicBeatState
 	var leftArrow:FlxSprite;
 	var rightArrow:FlxSprite;
 
+	private var camOTHER:FlxCamera;
 	override function create()
 	{
 		#if windows
