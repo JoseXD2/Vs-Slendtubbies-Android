@@ -369,8 +369,28 @@ class StoryMenuState extends MusicBeatState
 				LoadingState.loadAndSwitchState(new PlayState(), true);
 			});
 			*/
+			/*var video:MP4Handler = new MP4Handler();
+
+			if (curWeek == 1 && !isCutscene) // Checks if the current week is Tutorial.
+			{
+				FlxG.camera.fade(FlxColor.BLACK, 1, false, function(){
+                            video.playMP4(Paths.video('Cutscenetw1'), new PlayState()); 
+                            isCutscene = true;
+                        });
+			}
+			else
+			{
+				new FlxTimer().start(1, function(tmr:FlxTimer)
+				{
+					if (isCutscene)
+						video.onVLCComplete();
+
+					LoadingState.loadAndSwitchState(new PlayState(), true);
+				});
+			}
+		}
 			
-	}
+	}*/
 
 	function changeDifficulty(change:Int = 0):Void
 	{
