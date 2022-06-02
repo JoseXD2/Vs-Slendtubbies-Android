@@ -366,8 +366,9 @@ class StoryMenuState extends MusicBeatState
 			PlayState.campaignScore = 0;
 			new FlxTimer().start(1, function(tmr:FlxTimer)
 			{
-				LoadingState.loadAndSwitchState(new VideoState("assets/videos/FINAL_CUTSCENE_ONE.webm", new PlayState()), true);
-				//LoadingState.loadAndSwitchState(new PlayState(), true);
+				chapterload.animation.pause();
+				transOut = null;
+				LoadingState.loadAndSwitchState(new PlayState(), true);
 			});
 		}
 	}
