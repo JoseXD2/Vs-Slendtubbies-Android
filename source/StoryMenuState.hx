@@ -66,6 +66,7 @@ class StoryMenuState extends MusicBeatState
 	var rightArrow:FlxSprite;
 
 	private var camOTHER:FlxCamera;
+	
 	override function create()
 	{
 		#if windows
