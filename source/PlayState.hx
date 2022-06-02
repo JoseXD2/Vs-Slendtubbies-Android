@@ -3413,35 +3413,33 @@ class PlayState extends MusicBeatState
 				if (controls.RIGHT_P){luaModchart.executeState('keyPressed',["right"]);};
 				};
 				#end
-		 
+		                // Prevent player input if botplay is on
+		if (PlayStateChangeables.botPlay)
+		{
+			holdArray = [false, false, false, false];
+			pressArray = [false, false, false, false];
+			releaseArray = [false, false, false, false];
+			
+			{
+				holdArray = [false, false, false, false, false];
+				pressArray = [false, false, false, false, false];
+				releaseArray = [false, false, false, false, false];
+			}
+		}
+	
+		// HOLDS, check for sustain notes
+		{	if (holdArray.contains(true) && /*!boyfriend.stunned && */ generatedMusic)
+			{
+				notes.forEachAlive(function(daNote:Note)
+				{
+					if (daNote.isSustainNote && daNote.canBeHit && daNote.mustPress && holdArray[daNote.noteData])
+						goodNoteHit(daNote);
+				});
+			}
 				
-				// Prevent player input if botplay is on
-				if(PlayStateChangeables.botPlay)
-				{
-					holdArray = [false, false, false, false];
-					pressArray = [false, false, false, false];
-					releaseArray = [false, false, false, false];
-				} 
-
-				var anas:Array<Ana> = [null,null,null,null];
-
-				for (i in 0...pressArray.length)
-					if (pressArray[i])
-						anas[i] = new Ana(Conductor.songPosition, null, false, "miss", i);
-
-				// HOLDS, check for sustain notes
-				if (holdArray.contains(true) && /*!boyfriend.stunned && */ generatedMusic)
-				{
-					notes.forEachAlive(function(daNote:Note)
-					{
-						if (daNote.isSustainNote && daNote.canBeHit && daNote.mustPress && holdArray[daNote.noteData])
-							goodNoteHit(daNote);
-					});
-				}
-				
-				// PRESSES, check for note hits
-				if (pressArray.contains(true) && generatedMusic)
-				{
+			// PRESSES, check for note hits
+			if (pressArray.contains(true) && generatedMusic)
+			{
 						boyfriend.holdTimer = 0;
 			
 						var possibleNotes:Array<Note> = []; // notes that can be hit
@@ -3509,9 +3507,9 @@ class PlayState extends MusicBeatState
 										mashViolations--;
 									scoreTxt.color = FlxColor.WHITE;
 									var noteDiff:Float = -(coolNote.strumTime - Conductor.songPosition);
-									anas[coolNote.noteData].hit = true;
+									/*anas[coolNote.noteData].hit = true;
 									anas[coolNote.noteData].hitJudge = Ratings.CalculateRating(noteDiff, Math.floor((PlayStateChangeables.safeFrames / 60) * 1000));
-									anas[coolNote.noteData].nearestNote = [coolNote.strumTime,coolNote.noteData,coolNote.sustainLength];
+									anas[coolNote.noteData].nearestNote = [coolNote.strumTime,coolNote.noteData,coolNote.sustainLength];*/
 									goodNoteHit(coolNote);
 								}
 							}
@@ -3524,10 +3522,10 @@ class PlayState extends MusicBeatState
 							}
 					}
 
-					if (!loadRep)
+					/*if (!loadRep)
 						for (i in anas)
 							if (i != null)
-								replayAna.anaArray.push(i); // put em all there
+								replayAna.anaArray.push(i); // put em all there */
 				}
 				notes.forEachAlive(function(daNote:Note)
 				{
