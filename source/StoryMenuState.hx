@@ -33,7 +33,7 @@ class StoryMenuState extends MusicBeatState
 	
 	var isCutscene:Bool = false;
         var inCutscene:Bool = false;
-	var startedCountdown:Bool = false;
+	
 	
 	public static var weekUnlocked:Array<Bool> = [true, true, false, false, false, false, false];
 
@@ -370,18 +370,6 @@ class StoryMenuState extends MusicBeatState
 			PlayState.campaignScore = 0;
 			new FlxTimer().start(1, function(tmr:FlxTimer)
 			{            
-				inCutscene = true;
-					var video = new MP4Sprite();
-					video.antialiasing = true;
-
-					video.finishCallback = function()
-					{
-						
-						startCountdown();
-					};
-					video.playVideo(Paths.video('Cutscenetw1'), false, false);
-					video.cameras = [camOTHER];
-					add(video);
 				LoadingState.loadAndSwitchState(new PlayState(), true);
 			});
 		}
