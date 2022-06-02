@@ -49,7 +49,7 @@ class VideoState extends MusicBeatState
 		//FlxG.autoPause = true;
 		trace('close!');
 		trace(nextState);
-		MusicBeatState.switchState(nextState);
+		MusicBeatState(nextState);
 	}
 
 	function onURLChanging(url:String) {
