@@ -3683,8 +3683,8 @@ class PlayState extends MusicBeatState
 						webmHandler.pause();
 					else
 						webmHandler.resume();
-					#end
-				}*/
+					#end*/
+				}
 
 	function noteMiss(direction:Int = 1, daNote:Note):Void
 	{
