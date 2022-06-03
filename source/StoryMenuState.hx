@@ -370,7 +370,7 @@ class StoryMenuState extends MusicBeatState
 			PlayState.campaignScore = 0;
 			new FlxTimer().start(1, function(tmr:FlxTimer)
 			{            
-				LoadingState.loadAndSwitchState(new VideoState('assets/videos/Cutscenetw1.webm', new Playstate()), false);
+				LoadingState.loadAndSwitchState(new VideoState('assets/videos/Cutscenetw1.webm', new PlayState()), false);
 				LoadingState.loadAndSwitchState(new PlayState(), true);
 			});
 		}
